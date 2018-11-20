@@ -1,0 +1,29 @@
+<div>
+	<h3>添加键值</h3>
+	<form name='createForm'>
+		<div>
+			<label for='code'>*键值编号</label>
+			<input type='text' id='code' name='code' ng-model='pair.code' ng-pattern='/^[A-Za-z0-9]{4}$/' required 
+				unique='{"url":"{{checkPairCodeUrl}}","data":{"attr":"code"} }' />
+			<div ng-messages="createForm.code.$error" ng-if="createForm.code.$touched">
+				<div ng-message='required'>键值编码必填</div>
+				<div ng-message='pattern'>键值编码只能是4位数字或者字母</div>
+				<div ng-message='unique'>该键值编码已存在</div>
+			</div>
+		</div>
+		<div>
+			<label for='name'>*键值名称</label>
+			<input type='text' id='name' name='name' ng-model='pair.name' ng-pattern='/^[\u4e00-\u9fa5]{1,10}$/' required 
+				unique='{"url":"{{checkPairNameUrl}}","data":{"attr":"name"} }'  />
+			<div ng-messages="createForm.name.$error" ng-if="createForm.name.$touched">
+				<div ng-message='required'>键值名称必填</div>
+				<div ng-message='pattern'>键值名称限制为10个汉字</div>
+				<div ng-message='unique'>该键值名称已存在</div>
+			</div>
+		</div>
+		<div>
+			<button ng-click='createPair()'>确认</button>
+			<button ng-click='cancel()'>取消</button>
+		</div>
+	</form>
+</div>

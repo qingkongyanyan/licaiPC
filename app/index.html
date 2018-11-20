@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link href="common/styles/style.css" rel="stylesheet">
+    <!-- build:css app/combined.css -->
+    <link rel="stylesheet" href="../bower_components/angular-bootstrap-datetimepicker/src/css/datetimepicker.css">
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="../bower_components/angular-loading-bar/build/loading-bar.css" rel="stylesheet" >
+    <link href="../bower_components/ng-table/dist/ng-table.css" rel="stylesheet" >
+    <link href="../bower_components/angular-ui-select/dist/select.css" rel="stylesheet" >
+    <!-- endbuild -->
+</head>
+
+<body>
+<!--这里加载动画-->
+<!--这里加载js-->
+<!-- build:js app/lib1.js -->
+<script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+<script src="../bower_components/angular/angular.js"></script>
+<script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="../bower_components/angular-animate/angular-animate.js"></script>
+<script src="../bower_components/angular-messages/angular-messages.js"></script>
+<script src="../bower_components/angular-base64-upload/dist/angular-base64-upload.min.js"></script>
+<script src="../bower_components/ng-string/ng-string.js"></script>
+<script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="../bower_components/oclazyload/dist/ocLazyLoad.js"></script>
+<script src="../bower_components/lodash/lodash.js"></script>
+<script src="../bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+<script src="../bower_components/angular-ui-select/dist/select.js"></script>
+<!-- endbuild -->
+
+<!-- build:js app/lib2.js -->
+<script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../bower_components/ng-table/dist/ng-table.js"></script>
+<script src="../bower_components/angular-bootstrap-datetimepicker/src/js/datetimepicker.js"></script>
+<script src="../bower_components/angular-bootstrap-datetimepicker/src/js/datetimepicker.templates.js"></script>
+<script src="../bower_components/angular-date-time-input/src/dateTimeInput.js"></script>
+<script src="../bower_components/angular-loading-bar/build/loading-bar.js"></script>
+<script src="../bower_components/angular-jwt/dist/angular-jwt.js"></script>
+<!-- endbuild -->
+
+<!-- build:js app/app.js -->
+<script src="config/app.run.js"></script>
+<script src="config/app.constant.js"></script>
+<script src="config/app.config.js"></script>
+<script src="config/message.config.js"></script>
+<script src="common/scripts/common.config.js"></script>
+<script src="login/scripts/login.config.js"></script>
+<script src="system/scripts/system.config.js"></script>
+<script src="picture/scripts/picture.config.js"></script>
+<script src="knowledge/scripts/knowledge.config.js"></script>
+<script src="statistics/scripts/statistics.config.js"></script>
+<script src="config/oclazyload.config.js"></script>
+
+<!--common-->
+<script src="common/scripts/services/token_manager.service.js"></script>
+<script src="common/scripts/services/session.service.js"></script>
+<script src="common/scripts/services/token_manager_jwt.service.js"></script>
+<script src="common/scripts/services/auth_jwt.service.js"></script>
+<script src="common/scripts/services/auth.interceptor.js"></script>
+<script src="common/scripts/services/timestamp_marker.interceptor.js"></script>
+<script src="common/scripts/services/response_error.interceptor.js"></script>
+<script src="common/scripts/services/alert.service.js"></script>
+<script src="common/scripts/services/alertWarn.js"></script>
+<script src="common/scripts/services/enum.service.js"></script>
+
+<!-- 路由 -->
+<script src="login/scripts/login_route.js"></script>
+<script src="system/scripts/system_route.js"></script>
+<script src="picture/scripts/picture_route.js"></script>
+<script src="knowledge/scripts/knowledge_route.js"></script>
+<script src="statistics/scripts/statistics_route.js"></script>
+<script src="config/route.config.js"></script>
+<!-- endbuild -->
+
+<div class="div-h">
+    <!--弹出alert-->
+    <uib-alert class="topAlert" ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+    <div ui-view class="div-h"></div>
+</div>
+
+<script type="text/javascript" charset="utf-8" src="utf8-jsp/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="utf8-jsp/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="utf8-jsp/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" charset="utf-8" src="My97DatePicker/WdatePicker.js"></script>
+
+</body>
+
+</html>

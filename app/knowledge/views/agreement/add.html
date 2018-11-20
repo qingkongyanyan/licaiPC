@@ -1,0 +1,45 @@
+<link rel="stylesheet" type="text/css" href="common/styles/input_select.css" xmlns="http://www.w3.org/1999/html">
+
+<div class="head-path">
+    知识库管理 &gt; 问题管理 &gt; 添加协议
+</div>
+
+
+<div class="con-con con-pad">
+    <div class="con-warp" style="padding:0;height: 100%">
+        <div class="clearfix" style="margin-left: 0;height: 100%;width:100%;">
+            <form name='addForm' novalidate style="height:calc( 100% - 50px );">
+                <div class="con-lab mgt20  clearfix">
+                    <label class="fl">标题<span class="fr ast">*</span></label>
+                    <div class="con-sel fl ">
+                        <input type="text" class="form-control" id='title' name='title' ng-model='agreementAdd.title' minlength="1" maxlength="30" required>
+                        <span ng-show="agreementAdd.title.length == undefined">0</span>
+                        <span class="al ex-war">{{agreementAdd.title.length}}<span class="num-ex-pro"></span>/30字</span>
+                    </div>
+                    <div class="error login-validate-error errorIfo" ng-messages="addForm.title.$error" ng-show="addForm.title.$touched">
+                        <div ng-message='required'><img src="common/styles/images/error.png" />{{M['agreement.title.required']}}</div>
+                    </div>
+                </div>
+                <div class="con-lab mgt20  clearfix" style="height: calc( 100% - 74px );">
+                    <label class="fl">内容<span class="fr ast">*</span></label>
+                    <div class=" fl " style="width: 1000px; padding-left: 20px;height: 100%;">
+                        <ueditor name="content" config="editorConfig" ng-model="agreementAdd.content" required>
+
+                        </ueditor>
+                    </div>
+                    <div class="error login-validate-error errorIfo" ng-messages="addForm.content.$error" ng-show="addForm.content.$invalid" style="margin-left: 68px;">
+                        <div ng-message='required'><img src="common/styles/images/error.png" />{{M['agreement.content.required']}}</div>
+                    </div>
+                </div>
+                </form>
+                <div class="dtn-div pos_right" style="margin:0">
+                    <button type="submit" class="button-1ab394 btn btn-default btn-add fl sub_right" ng-click='ok()' ng-disabled="!addForm.$valid">确认</button>
+                    <!-- <p class="fl wh_sure mgl135 sub_right">
+                        <button type="submit" class="btn btn-default btn-add fl" id="opacity" ng-click='ok()' ng-disabled="!addForm.$valid">确认</button>
+                        <label class="label_sure button-1ab394 position_sure">确认</label> 
+                    </p> -->
+                    <button class="button-1ab394 btn btn-default btn-add fl but_right" ng-click='cancel()'>取消</button>
+                </div>
+        </div>
+    </div>
+</div>

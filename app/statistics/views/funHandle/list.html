@@ -1,0 +1,181 @@
+
+        <div class="head-path">
+            数据统计 &gt; 功能操作日志统计
+        </div>
+        <div class="con-con con-pad">
+            <div class="con-warp">
+                <div class="clearfix" style="margin:0;">
+                    <div class="con-lab mgt20 fl w338">
+                        <label class="fl" >操作日期</label>
+                        <!-- <div class="fl mgl20 dropdown-double con-sel">
+                            <p class="datepicker-wrap"><input ng-model = "startTime" type="text" class="Wdate" id="dus07" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'dus08\',{d:0});}',dateFmt:'yyyy-MM-dd'})"/></p>~
+                            <p class="datepicker-wrap"><input ng-model = "endTime" type="text" class="Wdate" id="dus08" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'dus07\',{d:0});}',dateFmt:'yyyy-MM-dd'})"/></p>
+                        </div> -->
+                        <div class="fl mgl20 dropdown80 con-sel">
+                            <input ng-model = "startTime" type="text" class="Wdate" id="dus07" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'dus08\',{d:0});}',dateFmt:'yyyy-MM-dd'})"/>
+                        </div>
+                        <div class="line">—</div>
+                        <div class="fl dropdown80 con-sel" style="margin-left: 0">
+                            <input ng-model = "endTime" type="text" class="Wdate" id="dus08" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'dus07\',{d:0});}',dateFmt:'yyyy-MM-dd'})"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="dtn-div">
+                    <!-- <div class="nqu-div fr" ng-click='list()'>
+                        <span >查询</span>
+                    </div>
+                    <div class="nqu-div fr" ng-click='reset()'>
+                        <span >重置</span>
+                    </div> -->
+                    <div class="nqu-div fr">
+                        <p class="chaxun">
+                          <a type="button" ng-click="list()">查询</a>
+                          <span></span>
+                          <a type="button" ng-click="reset()">重置</a>  
+                        </p>
+                    </div>
+                </div>
+                <div class="marker-tabl tab-top-g">
+                    <i class="fl"></i><p class="fl">功能操作日志统计列表</p>
+                </div>
+                <div class="grid-wrap" style="height: calc( 100% - 140px );overflow-x: auto;overflow-y: hidden;">
+                    <div class="second-wrap">
+                        <div class="div_div1">
+                            <p data-title="'序号'">
+                            序号
+                            </p>
+                            <p data-title="'操作日期'">
+                               操作日期
+                            </p>
+                            <p data-title="'工作管理'">
+                                工作管理
+                            </p>
+                            <p data-title="'工作提醒'">
+                                工作提醒
+                            </p>
+                            <p data-title="'客户管理'">
+                                客户管理
+                            </p>
+                            <p data-title="'产品在线'">
+                                产品在线
+                            </p>
+                            <p data-title="'业绩分析'">
+                               业绩分析 
+                            </p>
+                            <p data-title="'公司动态'">
+                                公司动态
+                            </p>
+                            <p data-title="'投资预约'">
+                                投资预约
+                            </p>
+                            <p data-title="'创新预约'">
+                                创新预约
+                            </p>
+                            <p data-title="'客户评级'">
+                               客户评级 
+                            </p>
+                            <p data-title="'客户归属'">
+                                客户归属
+                            </p>
+                            <p data-title="'会员服务'">
+                                会员服务
+                            </p>
+                            <p data-title="'我的账户'">
+                                我的账户
+                            </p>
+                        </div>
+                        <div style="height:calc(100% - 60px ) !important;overflow-y:auto;">
+                            <table class="table table-striped newTable-striped"  ng-table="funHandleTable" style="margin-bottom: 0;margin-top:-16px;">
+                                <tr ng-repeat="funHandleDetail in funHandleList" >
+                                    <td>
+                                        {{$index + 1}}
+                                    </td>
+                                    <td>
+                                        {{funHandleDetail.loginDate  | date:'yyyy-MM-dd'}}
+                                    </td>
+                                    <td>
+                                        {{funHandleDetail.a}}次
+                                    </td>
+                                    <td>
+                                        {{funHandleDetail.b}}次
+                                    </td>
+                                    <td>
+                                        {{funHandleDetail.c}}次
+                                    </td>
+                                    <td>
+                                        {{funHandleDetail.d}}次
+                                    </td>
+                                    <td>
+                                        {{funHandleDetail.e}}次
+                                    </td>
+                                    <td>
+                                        {{funHandleDetail.f}}次
+                                    </td>
+                                    <td>
+                                        {{funHandleDetail.g}}次
+                                    </td>
+                                    <td>
+                                        {{funHandleDetail.l}}次
+                                    </td>
+                                    <td>
+                                        {{funHandleDetail.h}}次
+                                    </td>
+                                    <td>
+                                        {{funHandleDetail.i}}次
+                                    </td>
+                                    <td>
+                                        {{funHandleDetail.m}}次
+                                    </td>
+                                    <td>
+                                        {{funHandleDetail.j}}次
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="div_div2">
+                            <p></p>
+                            <p>
+                                总计：
+                            </p>
+                            <p>
+                                工作管理<span>{{funHandleTotel.at}}</span>次
+                            </p>
+                            <p>
+                                工作提醒<span>{{funHandleTotel.bt}}</span>次
+                            </p>
+                            <p>
+                                客户管理<span>{{funHandleTotel.ct}}</span>次
+                            </p>
+                            <p>
+                                产品在线<span>{{funHandleTotel.dt}}</span>次
+                            </p>
+                            <p>
+                                业绩分析<span>{{funHandleTotel.et}}</span>次
+                            </p>
+                            <p>
+                                公司动态<span>{{funHandleTotel.ft}}</span>次
+                            </p>
+                            <p>
+                                投资预约<span>{{funHandleTotel.gt}}</span>次
+                            </p>
+                            <p>
+                                创新预约<span>{{funHandleTotel.lt}}</span>次
+                            </p>
+                            <p>
+                                客户评级<span>{{funHandleTotel.ht}}</span>次
+                            </p>
+                            <p>
+                                客户归属<span>{{funHandleTotel.it}}</span>次
+                            </p>
+                            <p>
+                                会员服务<span>{{funHandleTotel.mt}}</span>次
+                            </p>
+                            <p>
+                                我的账户<span>{{funHandleTotel.jt}}</span>次
+                            </p>
+                        </div>
+                    </div>         
+
+            </div>     
+        </div>
+    </div>

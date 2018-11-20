@@ -1,0 +1,37 @@
+<div>
+	<div>
+		字典编号<input type='text' ng-model='query.code' />
+		字典名称<input type='text' ng-model='query.name' />
+		<button ng-click='list()'>查询</button>
+	</div>
+    <div>
+        <a ui-sref="index.dict.create">新增</a>
+    </div>
+    <table ng-table="dictTable" class="table table-bordered table-striped">
+        <tr ng-repeat="dict in $data">
+            <td data-title="'序号'" >
+                {{$index+1}}
+            </td>
+            <td data-title="'字典编号'" >
+                {{dict.code}}
+            </td>
+            <td data-title="'字典名称'" >
+                {{dict.name}}
+            </td>
+            <td data-title="'字典类型'" >
+                {{dict.tagType}}
+            </td>
+            <td data-title="'键值名称'" >
+                {{dict.pairNames}}
+            </td>
+            <td data-title="'字典说明'" >
+                {{dict.remark}}
+            </td>
+            <td data-title="'操作'" >
+               	<a ui-sref="index.dict.edit({id:dict.id})">修改</a>
+				<a ui-sref="index.dict.view({id:dict.id})">详情</a>
+                <a ui-sref="index.dict.pairList({dictId:dict.id})">键值维护</a>
+            </td>
+        </tr>
+    </table>
+</div>

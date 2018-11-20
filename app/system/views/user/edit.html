@@ -1,0 +1,69 @@
+<div>
+	<form name='editForm'>
+		<div>
+			<label for='name'>*用户姓名</label>
+			<input type='text' id='name' name='name' ng-model='user.name' ng-maxlength='30' required
+				unique='{"url":"{{checkCodeUrl}}","data":{"attr":"code"}}' />
+			<div ng-messages="editForm.name.$error" ng-if="editForm.name.$touched">
+				<div ng-message='required'>用户姓名必填</div>
+				<div ng-message='maxlength'>用户姓名最大长度为30位</div>
+			</div>
+		</div>
+		<div>
+			<label>*性别</label>
+			<label ng-repeat="sex in SexEnum" for="{{sex.value}}">
+			<input type="radio" name="sex" ng-model="user.sex" ng-value="sex.value" id="{{sex.value}}">
+			{{sex.name}}
+			</label>
+		</div>		
+		<div>
+			<label for='certType'>*证件类型</label>
+			<select id='certType' name='certType' ng-model="user.certType" ng-required
+				ng-options="certType.value as certType.name for certType in CertTypeEnum"></select>
+		</div>
+		<div>
+			<label for='certCode'>*证件号码</label>
+			<input type='text' id='certCode' name='certCode' ng-model='user.certCode' required />
+			<div ng-messages="editForm.certCode.$error" ng-if="editForm.certCode.$touched">
+				<div ng-message='required'>证件号码必填</div>
+			</div>
+		</div>
+		<div>
+			<label for='education'>最高学历</label>
+			<select id='education' name='education' ng-model="user.education" 
+				ng-options="education.value as education.name for education in EducationEnum">
+				<option value='' selected='selected'></option>
+			</select>
+		</div>
+		<div>
+			<label for='mobile'>手机号码</label>
+			<input type='text' id='mobile' name='mobile' ng-model='user.mobile' 
+				ng-pattern='/^[1]([3][0-9]{1}|59|58|88|89)[0-9]{8}$/' />
+			<div ng-messages="editForm.mobile.$error" ng-if="editForm.mobile.$touched">
+				<div ng-message='pattern'>请输入合法的手机号码</div>
+			</div>
+		</div>
+		<div>
+			<label for='busiTunnel'>业务渠道名称</label>
+			<select id='busiTunnel' name='busiTunnel' ng-model='busiTunnel' ng-change='changeBusiTunnel()'
+				ng-options='busiTunnel as busiTunnel.name for busiTunnel in busiTunnelList'></select>
+		</div>
+		<div>
+			<label>产品名称</label>
+			<div>
+				<label>
+					<input type='checkbox' ng-model='pageChecked' ng-change='changePageChecked()' />
+					全选
+				</label>
+				<label ng-repeat='product in productPage'>
+					<input type='checkbox' ng-model='product.checked' />
+					{{product.name}}
+				</label>
+			</div>
+		</div>
+		<div>
+			<button ng-click='editUser()'>确认</button>
+			<button ng-click='cancel()'>取消</button>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,75 @@
+<div class="login-warp">
+        <div class="login-main" >
+             <div class="login-h">
+                 <img src="login/images/logo.png" class="fl">
+                 <p class="fl"></p>
+             </div>
+            <div class="line-top">
+                 <img src="login/images/lt.png">
+            </div>
+            <div class="login-center">
+                 <div class="login-c-text">
+                     <div class="login-c-l fl">
+                         <img src="login/images/logo1.png" style="width:358px;height:211px;">
+                      </div>
+                     <div class="login-l-img fl">
+                         <img src="login/images/line.png">
+                     </div>
+                     <div class="login-c-r fl">
+                         <form name="signupForm" ng-submit="signup()" novalidate>
+                             <ul>
+                                 <li >
+                                     <label class="i1 fl"><img src="login/images/user.png" class="i1"></label>
+                                     <input type="text"  class="fl" placeholder="用户名" name="userName"
+                                            ng-model="signup.userName"
+                                            ng-minlength="5"
+                                            ng-maxlength="20"
+                                            required
+                                     />
+                                     <div class="error login-validate-error" ng-messages="signupForm.userName.$error" ng-if="signupForm.userName.$touched">
+                                         <div ng-message="required">*用户名必填</div>
+                                         <div ng-message="minlength">用户名最小长度5</div>
+                                         <div ng-message="maxlength">用户名最小长度20</div>
+                                         <div ng-message="custom">自定义错误</div>
+
+                                     </div>
+
+                                 </li>
+                                 <li class="mgt30 i2">
+                                     <label class="i1 fl i2"><img src="login/images/pass.png" class="i1"></label>
+                                     <input type="password" class="fl" id="mar_pas" placeholder="密码" name="password"
+                                            ng-model="signup.password"
+                                            required
+                                     />
+                                     <div class ="error login-validate-error" ng-messages="signupForm.password.$error" ng-if="signupForm.password.$touched">
+                                         <div ng-message="required">*密码必填</div>
+                                     </div>
+                                 </li>
+                             </ul>
+                             <button type="submit" class="button radius" ng-class="{btn_enable:signupForm.$valid,btn_disable:signupForm.$invalid}"  ng-disabled="signupForm.$invalid">登录</button>
+                         </form>
+                     </div>
+                 </div>
+            </div>
+            <div class="line-bom">
+                <img src="login/images/bb.png">
+            </div>
+        </div>
+</div>
+
+
+<script type="text/javascript">
+    /*
+    $(function(){
+        $("form input").blur(function(){
+            var $parent=$(this).parent();
+            $parent.find("span").remove();
+        });
+        $("form input").focus(function(){
+            var $parent=$(this).parent();
+            $parent.find("span").remove();
+            $(this).addClass("curr");
+            $(this).val("");
+        });
+    });*/
+</script>

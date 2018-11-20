@@ -1,0 +1,33 @@
+<link rel="stylesheet" type="text/css" href="common/styles/input_select.css" xmlns="http://www.w3.org/1999/html">
+<div class="head-path">
+	轮播图设置 &gt; 轮播图 &gt; 图片上架
+</div>
+<div class="con-con con-pad">
+    <div class="con-warp">
+    	<div class="clearfix">
+			<table ng-table="pictureSetUpShelvesTable" class="table table-striped " >
+				<tr ng-repeat="pictureSetUpShelvesList in $data">
+					<td data-title="'序号'" >
+						{{$index + 1}}
+					</td>
+					<td data-title="'图片排序'" >
+						{{pictureSetUpShelvesList.sortNum}}
+					</td>
+					<td data-title="'图片名称'" >
+						{{pictureSetUpShelvesList.picName}}
+					</td>
+					<td data-title="'链接地址'" >
+						<input type="text" id='picUrl' name='picUrl' ng-model='pictureSetUpShelvesList.picUrl'>
+					</td>
+					<td data-title="'图片状态'" >
+						<select ng-model='pictureSetUpShelvesList.picState' class="form-control" ng-options='del.key as del.value for del in picStateEnum' ></select>
+					</td>
+				</tr>
+			</table>
+			<div class="dtn-div">
+				<button type="submit" class="btn btn-default btn-add fl mgl135" ng-click='modState()'>确认</button>
+				<button class="btn btn-default btn-add fl mgl10" ng-click='cancel()'>取消</button>
+			</div>
+        </div>
+    </div>
+</div>

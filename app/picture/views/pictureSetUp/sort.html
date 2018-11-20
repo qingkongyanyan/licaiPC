@@ -1,0 +1,30 @@
+<link rel="stylesheet" type="text/css" href="common/styles/input_select.css" xmlns="http://www.w3.org/1999/html">
+<div class="head-path">
+	轮播图设置 &gt; 轮播图 &gt; 图片排序
+</div>
+<div class="con-con con-pad">
+    <div class="con-warp">
+    	<div class="clearfix" style="margin:0">
+			<table ng-table="pictureSetUpSortTable" class="table table-striped " >
+				<tr ng-repeat="pictureSetUpSortList in $data">
+					<td data-title="'序号'" class="td1">
+						{{(params.page() - 1) * params.count() + $index + 1}}
+					</td>
+					<td data-title="'重新排序'" class="td_input td4">
+						<input type="text" id='sortNum' name='sortNum' ng-model='pictureSetUpSortList.sortNum'>
+					</td>
+					<td data-title="'图片名称'" class="td1">
+						{{pictureSetUpSortList.picName}}
+					</td>
+					<td data-title="'链接地址'" class="td4">
+						{{pictureSetUpSortList.picUrl}}
+					</td>
+				</tr>
+			</table>
+			<div class="dtn-div pos_right">
+				<button type="submit" class="button-1ab394 btn btn-default btn-add fl sub_right" ng-click='modSort()'>确认</button>
+				<button class="button-1ab394 btn btn-default btn-add fl mgl10 but_right" ng-click='cancel()'>取消</button>
+			</div>
+        </div>
+    </div>
+</div>

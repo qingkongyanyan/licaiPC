@@ -1,0 +1,92 @@
+*{padding: 0; margin: 0;}
+.cover{
+	height: 100%;
+	width: 100%;
+	display: none;
+	position: fixed;
+	z-index: 99;
+	left: 0;
+	top: 0;
+	background-color: rgba(0,0,0,0.5);
+}
+.tip{
+	min-height: 276px;
+	width: 493px;
+	padding: 0 18px;
+	position: fixed;
+	z-index: 100;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+}
+.head{
+	padding: 0px;
+	height: 51px;
+	border-bottom: 1px solid #ccc;
+}
+.head img{
+	margin-top: 20px;
+	float: right;
+	cursor: pointer;
+}
+.title{
+	display: inline-block;
+	width: 90px;
+	height: 50px;
+	line-height: 50px;
+	font-size: 16px;
+	text-align: center;
+	color: #08483b;
+	border-bottom: 2px solid #19aa8d;
+}
+form input{
+	height: 34px;
+	width: 344px;
+	border:1px solid #ccc;
+	padding-left: 11px;
+}
+form select{
+	height: 34px;
+	width: 344px;
+	border:1px solid #ccc;
+	margin-left: 4px;
+}
+form select{
+	margin-top: 20px;
+}
+form .ll{
+	margin-left: 26px;
+	font-weight: normal;
+}
+form .state{
+	font-weight: normal;
+	padding-left: 46px;
+}
+.keyNum{
+	margin: 35px 0 20px 0;
+}
+.bbtn{
+	height: 40px;
+	width: 118px;
+	margin: 23px 0 23px 0;
+	cursor: pointer;
+	border-radius: 3px;
+	border: 1px solid #19aa8d;
+	vertical-align: baseline;
+}
+.submit{
+	margin: 0 7px 0 98px;
+	background-color: #19aa8d;
+	color: #fff;
+}
+.cancle{
+	color: #19aa8d;
+	background-color: #fff;
+	}
+.mgl78{margin-left: 78px;}
+.rl{position: relative;}
+.al{position: absolute;}
+.tole{top:70px; left:80px;}
+.tole1{top:35px; left:80px;}
+.col{color:#f8ac59;}
+.mgr5{margin-right:5px;}

@@ -1,0 +1,107 @@
+<link type="text/css" rel="stylesheet" href="common/styles/style1.css"  >
+<link type="text/css" rel="stylesheet" href="common/styles/clearing.css"  >
+<div class="warp">
+    <div class=" left">
+        <div class="le-top">
+            <img src="images/header.png" class="fl">
+            <div class="fl">
+                <p>系统管理员</p>
+                <span class="mgt10"><i class="nor-ico fl"></i><span class="fl">正常</span></span>
+            </div>
+        </div>
+        <div class="left-nav">
+            <ul>
+                <li>
+                    <p ng-class="{clearfix:true,bgb: $state.includes('index.pictureSetUp')
+                    }">
+                        <i class="ico01-03 fl ico00"></i>
+                        <a class="fl" data-toggle="collapse" data-parent="#accordion" href="/#collapse1" >轮播图管理</a>
+                        <i class="fr arrows-right" data-toggle="collapse" data-parent="#accordion" href="/#collapse1"></i>
+                    </p>
+                    <div id="collapse1" class="accordion-body collapse" style="height: 0px;">
+                        <ul class="second">
+                            <li   ng-class="{active: $state.includes('index.pictureSetUp')}">
+                                <a ui-sref='index.pictureSetUp.list'>轮播图管理</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <p ng-class="{clearfix:true,bgb: $state.includes('index.comProblem')
+                    ||$state.includes('index.agreement')
+                    ||$state.includes('index.examPaper')
+                    }">
+                        <i class="ico01-03 fl ico00"></i>
+                        <a class="fl" data-toggle="collapse" data-parent="#accordion" href="/#collapse2" >知识库管理</a>
+                        <i class="fr arrows-right" data-toggle="collapse" data-parent="#accordion" href="/#collapse2"></i>
+                    </p>
+                    <div id="collapse2" class="accordion-body collapse" style="height: 0px;">
+                        <ul class="second">
+                            <!--<li   ng-class="{active: $state.includes('index.examPaper')}">-->
+                            <!--<a ui-sref='index.examPaper.list'>考卷管理</a>-->
+                            <!--</li>-->
+                            <li   ng-class="{active: $state.includes('index.agreement')}" ng-show="userInfo.roleCode.indexOf('FSYSTEM') >= 0">
+                                <!--<li   ng-class="{active: $state.includes('index.agreement')}">-->
+                                <a ui-sref='index.agreement.list'>协议管理</a>
+                            </li>
+                            <li   ng-class="{active: $state.includes('index.comProblem')}">
+                                <a ui-sref='index.comProblem.list'>常见问题管理</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <p ng-class="{clearfix:true,bgb: $state.includes('index.preSalePro')
+                    ||$state.includes('index.userOpinion')
+                    ||$state.includes('index.userLogin')
+                    ||$state.includes('index.funHandle')
+                    ||$state.includes('index.custRegister')
+                    }">
+                        <i class="ico01-03 fl ico00"></i>
+                        <a class="fl" data-toggle="collapse" data-parent="#accordion" href="/#collapse3" >数据统计</a>
+                        <i class="fr arrows-right" data-toggle="collapse" data-parent="#accordion" href="/#collapse3"></i>
+                    </p>
+                    <div id="collapse3" class="accordion-body collapse" style="height: 0px;">
+                        <ul class="second">
+                            <li   ng-class="{active: $state.includes('index.preSalePro')}">
+                                <a ui-sref='index.preSalePro.list'>预售产品反馈统计</a>
+                            </li>
+                            <li   ng-class="{active: $state.includes('index.userOpinion')}">
+                                <a ui-sref='index.userOpinion.list'>用户意见反馈统计</a>
+                            </li>
+                            <li   ng-class="{active: $state.includes('index.userLogin')}">
+                                <a ui-sref='index.userLogin.list'>用户登录统计</a>
+                            </li>
+                           <!-- <li   ng-class="{active: $state.includes('index.funHandle')}" ng-show="userInfo.roleCode.indexOf('FSYSTEM') >= 0">-->
+                            <li   ng-class="{active: $state.includes('index.funHandle')}">
+                                <a ui-sref='index.funHandle.list'>功能操作日志统计</a>
+                            </li>
+                            <li   ng-class="{active: $state.includes('index.custRegister')}">
+                                <a ui-sref='index.custRegister.list'>客户注册统计</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class=" right-img" >
+        <div class="head-div">
+            <img src="images/indx-logo.png" class="fl">
+            <p class="fl">欢迎使用诺远财富H5管理系统</p>
+            <div class="hea-rig fr">
+                <a href="javascript:void(0);"><i class="ico-inx" ng-click="toindex()"></i></a>
+                <i class="lin"></i>
+                <i class="ico-set"></i>
+                <i class="lin"></i>
+                <a href="javascript:void(0);"><i class="ico-col" ng-click="tologin()"></i></a>
+            </div>
+        </div>
+        <div class="content" >
+            <div class="shadow"></div>
+            <div class="col-sm-9 col-md-12  main ng-scope con-img" ui-view style="padding:20px 20px;">
+                <img src="common/styles/images/inx-img4.png">
+            </div>
+        </div>
+    </div>
+</div>

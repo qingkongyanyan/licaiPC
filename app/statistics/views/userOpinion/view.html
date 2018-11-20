@@ -1,0 +1,17 @@
+<link rel="stylesheet" type="text/css" href="common/styles/input_select.css" xmlns="http://www.w3.org/1999/html">
+<div class="head-path">数据统计 &gt; 用户意见反馈统计 &gt; 问题详情</div>
+<div class="con-con con-pad">
+	<div class="con-lab con-warp clearfix">
+		<div class="clearfix fl81">
+			<label class="fl81-left"><span>功能项：</span></label>
+			<div class="fl81-right ellipsis">{{userOpinionDetail.functionType | functionType}}</div>
+		</div>
+		<div class="clearfix fl81">
+			<label class="fl81-left"><span>问题描述：</span></label>
+			<div class="fl81-right">{{userOpinionDetail.description}}</div>
+		</div>
+		<div class="dtn-div pos_right" style="margin-top:30px;">
+			<button class="button-1ab394 btn btn-default btn-add but_right30" ng-click='close()'>关闭</button>
+		</div>
+	</div>
+</div>

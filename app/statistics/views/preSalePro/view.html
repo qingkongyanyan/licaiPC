@@ -1,0 +1,156 @@
+<div class="head-path">
+	数据统计 &gt; 预售产品反馈统计 &gt; 反馈详情
+</div>
+<div class="con-con con-pad">
+	<div class="con-warp">
+		<div class="clearfix" style="margin:0;">
+			<div class="con-lab mgt20 fl w338">
+				<label class="fl" >事业部</label>
+				<div class="con-sel fl opacity_sel">
+					<!-- <select ng-model = "orgType04.selected" class="form-control" ng-options = "a.orgCode as a.orgName for a in orgType04.data" ng-change="getProCodeInfo03(orgType04.selected)"></select > -->
+					<ui-select ng-model="orgType04.selected" append-to-body="true" ng-change="getProCodeInfo03(orgType04.selected)">
+                        <ui-select-match placeholder="全部">{{$select.selected.orgName}}</ui-select-match>
+                        <ui-select-choices repeat="x.orgCode as x in orgType04.data | filter: $select.search">
+                            <small ng-bind-html="x.orgName | highlight: $select.search"></small> 
+                        </ui-select-choices> 
+                    </ui-select>
+                    <label></label>
+					<!--<multi-select-tree data-input-model="data"-->
+									   <!--multi-select="true"-->
+									   <!--data-output-model="data.selected"-->
+									   <!--data-default-label="请选择..."-->
+									   <!--data-callback="selectOnly1Or2(item, selectedItems)"-->
+									   <!--data-select-only-leafs="true"-->
+									   <!--data-switch-view-callback="switchViewCallback(scopeObj)"-->
+									   <!--data-switch-view-label="test1"-->
+									   <!--data-switch-view="true">-->
+					<!--</multi-select-tree>-->
+					<!--<br />-->
+					<!--<br />-->
+					<!--<br />-->
+					<!--<br />-->
+					<!--<br />-->
+					<!--<br />-->
+					<!--<multi-select-tree data-input-model="orgType"-->
+									   <!--multi-select="true"-->
+									   <!--data-output-model="orgType.selected"-->
+									   <!--data-default-label="请选择..."-->
+									   <!--data-callback="selectOnly1Or2(item, selectedItems)"-->
+									   <!--data-select-only-leafs="true">-->
+					<!--</multi-select-tree>-->
+				</div>
+				<!--<br />orgType items: {{orgType}}-->
+				<!--<br />Selected items: {{orgType.selected}}-->
+			</div>
+			<div class="con-lab mgt20 fl w338">
+				<label class="fl mgl16" >大区</label>
+				<div class="con-sel fl opacity_sel">
+					<!-- <select ng-model = "orgType03.selected" class="form-control" ng-options = "a.orgCode as a.orgName for a in orgType03.data" ng-change="getProCodeInfo08(orgType03.selected)"></select > -->
+					<ui-select ng-model="orgType03.selected" append-to-body="true" ng-change="getProCodeInfo08(orgType03.selected)">
+                        <ui-select-match placeholder="全部">{{$select.selected.orgName}}</ui-select-match>
+                        <ui-select-choices repeat="x.orgCode as x in orgType03.data | filter: $select.search">
+                            <small ng-bind-html="x.orgName | highlight: $select.search"></small> 
+                        </ui-select-choices> 
+                    </ui-select>
+                    <label></label>
+				</div>
+			</div>
+			<div class="con-lab mgt20 fl w338">
+				<label class="fl mgl16" >省市</label>
+				<div class="con-sel fl opacity_sel">
+					<!-- <select ng-model = "orgType08.selected" class="form-control" ng-options = "a.orgCode as a.orgName for a in orgType08.data" ng-change="getProCodeInfo05(orgType08.selected)"></select > -->
+					<ui-select ng-model="orgType08.selected" append-to-body="true" ng-change="getProCodeInfo05(orgType08.selected)">
+                        <ui-select-match placeholder="全部">{{$select.selected.orgName}}</ui-select-match>
+                        <ui-select-choices repeat="x.orgCode as x in orgType08.data | filter: $select.search">
+                            <small ng-bind-html="x.orgName | highlight: $select.search"></small> 
+                        </ui-select-choices> 
+                    </ui-select>
+                    <label></label>
+				</div>
+			</div>
+			<div class="con-lab mgt20 fl w338">
+				<label class="fl mgl16" >城市</label>
+				<div class="con-sel fl opacity_sel">
+					<!-- <select ng-model = "orgType05.selected" class="form-control" ng-options = "a.orgCode as a.orgName for a in orgType05.data" ng-change="getProCodeInfo06(orgType05.selected)"></select > -->
+					<ui-select ng-model="orgType05.selected" append-to-body="true">
+                        <ui-select-match placeholder="全部">{{$select.selected.orgName}}</ui-select-match>
+                        <ui-select-choices repeat="x.orgCode as x in orgType05.data | filter: $select.search">
+                            <small ng-bind-html="x.orgName | highlight: $select.search"></small> 
+                        </ui-select-choices> 
+                    </ui-select>
+                    <label></label>
+				</div>
+			</div>
+			<div class="con-lab mgt20 fl w338">
+				<label class="fl" >营业部</label>
+				<div class="con-sel fl opacity_sel">
+					<!-- <select ng-model = "orgType06.selected" class="form-control" ng-options = "a.orgCode as a.orgName for a in orgType06.data" ></select > -->
+					<ui-select ng-model="orgType06.selected" append-to-body="true">
+                        <ui-select-match placeholder="全部">{{$select.selected.orgName}}</ui-select-match>
+                        <ui-select-choices repeat="x.orgCode as x in orgType06.data | filter: $select.search">
+                            <small ng-bind-html="x.orgName | highlight: $select.search"></small> 
+                        </ui-select-choices> 
+                    </ui-select>
+                    <label></label>
+				</div>
+			</div>
+		</div>
+		<div class="dtn-div">
+			<!-- <div class="nqu-div fr" ng-click='list()'>
+				<span >查询</span>
+			</div>
+			<div class="nqu-div fr" ng-click='reset()'>
+				<span >重置</span>
+			</div> -->
+			<div class="nqu-div fr">
+                <p class="chaxun">
+                  <a type="button" ng-click="list()">查询</a>
+                  <span></span>
+                  <a type="button" ng-click="reset()">重置</a>  
+                </p>
+            </div>
+		</div>
+		<div class="marker-tabl tab-top-g">
+			<i class="fl"></i><p class="fl">预售产品反馈统计详情列表</p>
+		</div>
+		<div class="grid-wrap">
+		<table ng-table="preSaleProDetailTable" class="table table-striped " >
+			<tr ng-repeat="preSaleProDetailList in $data">
+				<td data-title="'序号'" class="td1">
+					{{$index + 1}}
+				</td>
+				<td data-title="'用户名称'" class="td1">
+					{{preSaleProDetailList.userName}}
+				</td>
+				<td data-title="'用户编号'" class="td1">
+					{{preSaleProDetailList.userCode}}
+				</td>
+				<td data-title="'功能角色'" class="td1">
+					{{preSaleProDetailList.roleName}}
+				</td>
+				<td data-title="'所属机构'" class="td4">
+					{{preSaleProDetailList.orgName}} 
+				</td>
+				<td data-title="'预估市场份额[万元]'" class="td4">
+					{{preSaleProDetailList.etmtMrktShare}}
+				</td>
+				<td data-title="'反馈时间'" class="td4">
+					{{preSaleProDetailList.timeStamp | date:'yyyy-MM-dd HH:mm:ss'}}
+				</td>
+				<td data-title="'预售反馈'" class="td1">
+					{{preSaleProDetailList.proEltnFdBk | proEltnFdBk}}
+				</td>
+				<td data-title="'反馈说明'" class="td8">
+					{{preSaleProDetailList.etmtRemark}}
+				</td>
+			</tr>
+		</table>
+		</div>
+		<div class="dtn-div">
+			预估市场份额【万元】合计：{{qryProFeedBackDetl.sumAmt}}
+		</div>
+		<div class="dtn-div pos_right" style="margin: 0px;">
+			<button class="button-1ab394 btn btn-default btn-add fl but_right30" ng-click='close()'>关闭</button>
+		</div>
+	</div>
+</div>

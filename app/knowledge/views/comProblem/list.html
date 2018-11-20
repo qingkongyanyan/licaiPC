@@ -1,0 +1,90 @@
+
+        <div class="head-path">
+            知识库管理 &gt; 问题管理
+        </div>
+        <div class="con-con con-pad">
+            <div class="con-warp">
+                <div class="clearfix" style="margin:0;">
+                    <div class="con-lab mgt20 fl w338">
+                        <label class="fl">文件名称</label>
+                        <div class="con-sel fl">
+                            <input type="text" class="form-control" placeholder="" ng-model='question'  >
+                        </div>
+                    </div>
+                    <div class="con-lab mgt20 fl w338">
+                        <label class="fl w81" >创建时间</label>
+                        <div class="fl mgl20 dropdown80 con-sel">
+                            <input ng-model = "startTime" type="text" class="form-control time_input Wdate" id="dkn01" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'dkn02\',{d:0});}',dateFmt:'yyyy-MM-dd'})"/>
+                        </div>
+                        <div class="line">—</div>
+                        <div class="fl dropdown80 con-sel" style="margin-left: 0">
+                            <input ng-model = "endTime" type="text" class="form-control time_input Wdate" id="dkn02" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'dkn01\',{d:0});}',dateFmt:'yyyy-MM-dd'})"/>
+                        </div>
+                    </div>
+                    <div class="con-lab mgt20 fl w338">
+                        <label class="fl w81" >状态</label>
+                        <div class="con-sel fl opacity_sel">
+                            <!-- <select ng-model = "state.selected" class="form-control" ng-options = "a.key as a.value for a in state.data" ></select > -->
+                            <ui-select ng-model="state.selected" append-to-body="true">
+                                <ui-select-match placeholder="全部">{{$select.selected.value}}</ui-select-match>
+                                <ui-select-choices repeat="x.key as x in state.data | filter: $select.search">
+                                    <small ng-bind-html="x.value | highlight: $select.search"></small> 
+                                </ui-select-choices> 
+                            </ui-select>
+                            <label></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="dtn-div">
+                    <input class="button-1ab394 btn btn-default btn-add fl" type="button" ui-sref="index.comProblem.add" value="添加">
+                    <input class="button-1ab394 btn btn-default btn-add fl mgl10" type="button" ng-click="updateState(0)" value="启用">
+                    <input class="button-1ab394 btn btn-default btn-add fl mgl10" type="button" ng-click="updateState(1)" value="停用">
+                    <!-- <div class="nqu-div fr" ng-click='list()'>
+                        <span >查询</span>
+                    </div>
+                    <div class="nqu-div fr" ng-click='reset()'>
+                        <span >重置</span>
+                    </div> -->
+                    <div class="nqu-div fr">
+                        <p class="chaxun">
+                          <a type="button" ng-click="list()">查询</a>
+                          <span></span>
+                          <a type="button" ng-click="reset()">重置</a>  
+                        </p>
+                    </div>
+                </div>
+                <div class="marker-tabl tab-top-g">
+                    <i class="fl"></i><p class="fl">常见问题列表</p>
+                </div>
+                <div class="grid-wrap">
+                    <table ng-table="comProblemTable" class="table table-bordered table-striped " >
+                        <tr ng-repeat="comProblemList in $data">
+                            <td data-title="" class="check_td">
+                                <input type="checkbox" name="update" ng-checked="isSelected('update',comProblemList.id)" ng-click="updateSelection('update',$event,comProblemList.id)" />
+                                <label class="check_label3 "></label>
+                            </td>
+                            <td data-title="'序号'" class="td1">
+                                {{(params.page() - 1) * params.count() + $index + 1}}
+                            </td>
+                            <td data-title="'标题'" class="td4">
+                                {{comProblemList.question}}
+                            </td>
+                            <td data-title="'创建时间'" class="td4">
+                                {{comProblemList.createTime | date:'yyyy-MM-dd HH:mm:ss'}}
+                            </td>
+                            <td data-title="'状态'" class="td1">
+                                {{comProblemList.state | state}}
+                            </td>
+                            <td data-title="'操作'" class="td2">
+                                <span>
+                                    <a href="" ui-sref="index.comProblem.detail({id:comProblemList.id})" title="查看"><i class="check mgr10"></i></a>
+                                    <a href="javascript:void(0);" ng-click='update(comProblemList.state,comProblemList.id)' title="修改"><i class="write mgr10"></i></a>
+                                    <a href="javascript:void(0);" ng-click='delete({id:comProblemList.id})' title="删除"><i class="delete mgr10"></i></a>
+                                </span>
+                            </td>
+                        </tr>
+                        <!--<tr id="show" class="pos_tr"><td class="pos_td pos_td40"><div ng-hide='$data.length>0'>暂没有数据</div></td></tr>-->
+                    </table>
+                </div>
+            </div>
+        </div>

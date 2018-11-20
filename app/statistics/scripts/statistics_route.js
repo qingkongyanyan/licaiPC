@@ -1,0 +1,227 @@
+//数据统计总模块
+angular.module('statistics.route',['ui.router',
+    'preSalePro.route',
+    'userOpinion.route',
+    'userLogin.route',
+    'funHandle.route',
+    'custRegister.route']);
+
+//数据统计->预售产品反馈统计模块
+angular.module('preSalePro.route',['ui.router'])
+.config(["$stateProvider","$urlRouterProvider",function($stateProvider, $urlRouterProvider) {
+    $stateProvider
+        //****************************预售产品反馈统计模块******************************
+        .state('index.preSalePro',{
+            url:'/preSalePro',
+            abstract:true,
+            templateUrl:'statistics/views/preSalePro/preSalePro.html',
+            controller:'preSaleProController',
+            resolve:{
+                deps:['$ocLazyLoad',function($ocLazyLoad){
+                    return $ocLazyLoad.load('statistics.preSaleProController');
+                }]
+            }
+        })
+        //预售产品反馈统计列表
+        .state('index.preSalePro.list',{
+            url:'',
+            templateUrl:'statistics/views/preSalePro/list.html',
+            controller:'preSaleProListController'
+        })
+        //添加预售产品反馈
+        /*.state("index.preSalePro.add",{
+            url:"/add",
+            templateUrl:"statistics/views/preSalePro/add.html",
+            controller:"preSaleProAddController"
+        })*/
+        //修改预售产品反馈
+        /*.state("index.preSalePro.update",{
+            url:"/update/:id",
+            templateUrl:"statistics/views/preSalePro/edit.html",
+            controller:"preSaleProEditController"
+        })*/
+        //预售产品反馈统计详细
+        .state("index.preSalePro.view",{
+            url:"/detail/:proCode",
+            templateUrl:"statistics/views/preSalePro/view.html",
+            controller:"preSaleProViewController"
+        })
+        //****************************预售产品反馈统计模块******************************
+    }
+]);
+
+//数据统计->用户意见反馈统计模块
+angular.module('userOpinion.route',['ui.router'])
+.config(["$stateProvider","$urlRouterProvider",function($stateProvider, $urlRouterProvider) {
+    $stateProvider
+        //****************************用户意见反馈统计模块******************************
+        .state('index.userOpinion',{
+            url:'/userOpinion',
+            abstract:true,
+            templateUrl:'statistics/views/userOpinion/userOpinion.html',
+            controller:'userOpinionController',
+            resolve:{
+                deps:['$ocLazyLoad',function($ocLazyLoad){
+                    return $ocLazyLoad.load('statistics.userOpinionController');
+                }]
+            }
+        })
+        //用户意见反馈统计列表
+        .state('index.userOpinion.list',{
+            url:'',
+            templateUrl:'statistics/views/userOpinion/list.html',
+            controller:'userOpinionListController'
+        })
+        //添加用户意见反馈
+        /*.state("index.userOpinion.add",{
+            url:"/add",
+            templateUrl:"statistics/views/userOpinion/add.html",
+            controller:"userOpinionAddController"
+        })*/
+        //修改用户意见反馈
+        /*.state("index.userOpinion.update",{
+            url:"/update/:id",
+            templateUrl:"statistics/views/userOpinion/edit.html",
+            controller:"userOpinionEditController"
+        })*/
+        //用户意见反馈详细
+        .state("index.userOpinion.detail",{
+            url:"/detail/:id",
+            templateUrl:"statistics/views/userOpinion/view.html",
+            controller:"userOpinionViewController"
+        })
+        //****************************用户意见反馈统计模块******************************
+    }
+]);
+
+//数据统计->用户登录统计模块
+angular.module('userLogin.route',['ui.router'])
+.config(["$stateProvider","$urlRouterProvider",function($stateProvider, $urlRouterProvider) {
+    $stateProvider
+        //****************************用户登录统计模块******************************
+        .state('index.userLogin',{
+            url:'/userLogin',
+            abstract:true,
+            templateUrl:'statistics/views/userLogin/userLogin.html',
+            controller:'userLoginController',
+            resolve:{
+                deps:['$ocLazyLoad',function($ocLazyLoad){
+                    return $ocLazyLoad.load('statistics.userLoginController');
+                }]
+            }
+        })
+        //用户登录统计列表
+        .state('index.userLogin.list',{
+            url:'',
+            templateUrl:'statistics/views/userLogin/list.html',
+            controller:'userLoginListController'
+        })
+        //添加登录统计
+        /*.state("index.userLogin.add",{
+            url:"/add",
+            templateUrl:"statistics/views/userLogin/add.html",
+            controller:"userLoginAddController"
+        })*/
+        //修改登录统计
+        /*.state("index.userLogin.update",{
+            url:"/update/:id",
+            templateUrl:"statistics/views/userLogin/edit.html",
+            controller:"userLoginEditController"
+        })*/
+        //用户登录统计详细
+        .state("index.userLogin.detail",{
+            url:"/detail/:userCode/:userName/:roleName/:loginDate",
+            templateUrl:"statistics/views/userLogin/view.html",
+            controller:"userLoginViewController"
+        })
+        //****************************用户登录统计模块******************************
+    }
+]);
+
+//数据统计->功能操作日志统计模块
+angular.module('funHandle.route',['ui.router'])
+.config(["$stateProvider","$urlRouterProvider",function($stateProvider, $urlRouterProvider) {
+    $stateProvider
+        //****************************功能操作日志统计模块******************************
+        .state('index.funHandle',{
+            url:'/funHandle',
+            abstract:true,
+            templateUrl:'statistics/views/funHandle/funHandle.html',
+            controller:'funHandleController',
+            resolve:{
+                deps:['$ocLazyLoad',function($ocLazyLoad){
+                    return $ocLazyLoad.load('statistics.funHandleController');
+                }]
+            }
+        })
+        //功能操作日志统计列表
+        .state('index.funHandle.list',{
+            url:'',
+            templateUrl:'statistics/views/funHandle/list.html',
+            controller:'funHandleListController'
+        })
+        //添加功能操作日志统计
+        /*.state("index.funHandle.add",{
+            url:"/add",
+            templateUrl:"statistics/views/funHandle/add.html",
+            controller:"funHandleAddController"
+        })*/
+        //修改功能操作日志统计
+        /*.state("index.funHandle.update",{
+            url:"/update/:id",
+            templateUrl:"statistics/views/funHandle/edit.html",
+            controller:"funHandleEditController"
+        })*/
+        //功能操作日志统计详细
+        /*.state("index.funHandle.detail",{
+            url:"/detail/:userCode/:userName/:roleName/:loginDate",
+            templateUrl:"statistics/views/funHandle/view.html",
+            controller:"funHandleViewController"
+        })*/
+        //****************************功能操作日志统计模块******************************
+    }
+]);
+
+//数据统计->客户注册统计模块
+angular.module('custRegister.route',['ui.router'])
+.config(["$stateProvider","$urlRouterProvider",function($stateProvider, $urlRouterProvider) {
+    $stateProvider
+        //****************************客户注册统计模块******************************
+        .state('index.custRegister',{
+            url:'/custRegister',
+            abstract:true,
+            templateUrl:'statistics/views/custRegister/custRegister.html',
+            controller:'custRegisterController',
+            resolve:{
+                deps:['$ocLazyLoad',function($ocLazyLoad){
+                    return $ocLazyLoad.load('statistics.custRegisterController');
+                }]
+            }
+        })
+        //客户注册统计列表
+        .state('index.custRegister.list',{
+            url:'',
+            templateUrl:'statistics/views/custRegister/list.html',
+            controller:'custRegisterListController'
+        })
+        //添加客户注册
+        /*.state("index.custRegister.add",{
+            url:"/add",
+            templateUrl:"statistics/views/custRegister/add.html",
+            controller:"custRegisterAddController"
+        })*/
+        //修改客户注册
+        /*.state("index.custRegister.update",{
+            url:"/update/:id",
+            templateUrl:"statistics/views/custRegister/edit.html",
+            controller:"custRegisterEditController"
+        })*/
+        //客户注册详细
+        .state("index.custRegister.detail",{
+            url:"/detail/:id",
+            templateUrl:"statistics/views/custRegister/view.html",
+            controller:"custRegisterViewController"
+        })
+        //****************************客户注册统计模块******************************
+    }
+]);

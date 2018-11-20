@@ -1,0 +1,47 @@
+<div class="head-path">
+	数据统计 &gt; 客户注册统计 &gt; 查看问卷结果
+</div>
+<div class="con-con con-pad">
+	<div class="con-warp">
+		<div class="clearfix" style="margin:0">
+			<div class="con-lab mgt10  clearfix fl">
+				<label class="fl">客户名称:</label>
+				<div class="con-sel fl mgl20 dropdown">
+					<label class="fl">{{custRegisterDetail.custName}}</label>
+				</div>
+			</div>
+			<div class="con-lab mgt10  clearfix fl">
+				<label class="fl">得分:</label>
+				<div class="con-sel fl mgl20 dropdown">
+					<label class="fl">{{custRegisterDetail.totalScore}}</label>
+				</div>
+			</div>
+			<div class="con-lab mgt10  clearfix fl">
+				<label class="fl">投资类型:</label>
+				<div class="con-sel fl mgl20 dropdown">
+					<label class="fl">{{custRegisterDetail.typeName}}</label>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix fl81" style="height:calc(100% - 100px ); overflow:auto;border-top: 1px solid #ccc">
+			<ul>
+				<li ng-repeat="options in custRegisterDetail.options">
+					{{options.titleIndex}}.{{options.title}}
+					<ul>
+						<li ng-repeat="option in options.resultOptions">
+							<p class="checkbox2">
+								<input type="checkbox" ng-checked="option.isSelected == 1 ? true : false"/>
+								<label class="check_label2"></label>
+							</p>
+							
+							<span style="margin-left: 20px">{{option.answer}}              ({{option.score}}分)</span>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="dtn-div pos_right" style="overflow:visible;margin-bottom: 10px;">
+			<button class="button-1ab394 btn btn-default btn-add but_right30" ng-click='close()'>关闭</button>
+		</div>
+	</div>
+</div>

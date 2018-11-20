@@ -1,0 +1,19 @@
+.tree-hit {
+    cursor: pointer;
+}
+.tree-collapsed {
+    background: url('images/tree_icons.png') no-repeat 0px 0px;
+}
+.tree-expanded {
+    background: url('images/tree_icons.png') no-repeat -18px 0px;
+}
+.folder_wrench {
+    background: url('images/folder_wrench.png') no-repeat center center;
+}
+.tree-collapsed,.tree-expanded,.tree-folder,.tree-indent {
+    display: inline-block;
+    width: 16px;
+    height: 18px;
+    vertical-align: top;
+    overflow: hidden;
+}

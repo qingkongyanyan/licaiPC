@@ -1,0 +1,397 @@
+@charset "utf-8";
+/* CSS Document */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,input,button,textarea,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video,hr{margin:0;padding:0}
+body,button,input,select,textarea{font:12px/1.5 "微软雅黑" , tahoma,arial,"\5b8b\4f53";*line-height:1.5;-ms-overflow-style:scrollbar; color:#3b3b3b; border:none;}
+h1,h2,h3,h4,h5,h6{font-size:100%}
+ul,ol,li,dl{list-style:none;}
+address,cite,dfn,em,var{font-style:normal}
+code,kbd,pre,samp{font-family:courier new,courier,monospace}
+small{font-size:12px}
+ul,ol{list-style:none}a{text-decoration:none; color:#3a302e;}
+a:hover{text-decoration: underline}
+sup{vertical-align:text-top}
+sub{vertical-align:text-bottom}
+legend{color:#000}
+fieldset,img{border:0}
+button,input,select,textarea{font-size:100%}
+table{border-collapse:collapse;border-spacing:0}
+div{ margin:0 auto;}
+
+.clearfix:before,.clearfix:after{clear: both;content: " "; display: table; font-size: 0; height: 0;line-height: 0;visibility: hidden;}
+.clearfix {*zoom:1;}
+/*.clearfix:before,.clearfix:after{display: table;content: "";line-height: 0;}*/
+.clearfix:after{clear: both;}
+.fl{float:left;}
+.fr{float:right;}
+.ld{position:relative;}
+.rl{position:relative;}
+.al{position:absolute;}
+.txt_l{ text-align: left;  }
+.ind15{text-indent: 15px;}
+.pdb20{padding-bottom:20px;}
+.mgt5{margin-top:5px;}
+.mgt30{margin-top:30px;}
+.mgb50{margin-bottom: 50px;}
+
+
+
+.ng-table-pager a.prev-page {
+    background: #fff url(images/7.png) no-repeat 9px 10px;
+}
+
+.ng-table-pager a.next-page {
+    background: #fff url(images/8.png) no-repeat 12px 10px;
+}
+
+.ng-table-pager input.goto {
+    width: 33px;
+}
+
+/***************************************************/
+/* 分页 */
+.ng-table-pager {
+    line-height: 40px;
+    height: 40px;
+    text-align: center;
+}
+
+.float_l{
+    float: left;
+}
+
+.float_r{
+    float: right;
+}
+
+.table_w,.table_w .ui-select-bootstrap input{
+    width:62px;
+    min-width: 62px;
+    margin-top: -0.5px;
+    position: relative; 
+}
+
+.table_w .table_w .ui-select-bootstrap .ui-select-choices{
+    width:62px;
+    min-width: 62px;
+    margin-top: -0.5px;
+}
+
+.table_w div,.table_w .ui-select-bootstrap .ui-select-choices{
+    width:62px;
+    min-width: 62px;
+    margin-top: -0.5px;
+}
+
+.table_w ul li{
+    width:60px !important;
+    min-width: 60px !important;
+   /*  background: red; */
+}
+
+ {
+    margin:0 6px;
+    position: relative;
+}
+
+.table_w .ui-select-bootstrap > .ui-select-choices{
+    margin-top: 0px !important;
+}
+
+.table_w label{
+    position: absolute;
+    top:6px;
+    right:0;
+    width:28px;
+    height:31px;
+    border-left:1px solid #ccc;
+}
+
+.table_w label:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 4px solid transparent;
+  border-top-color: #F29938;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -3px; 
+}  
+
+.table_w .ui-select-container{
+    position: relative;
+    width: 62px !important;
+}
+ .table_w .em_caret{
+    width:28px;
+    height: 33px;
+ }
+
+ .table_w .em_caret .caret{
+      content: "";
+      width: 0;
+      height: 0;
+      border: 4px solid transparent;
+      border-top-color: #000;
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      margin-top: -2px;
+ }
+
+.table_w .ui-select-bootstrap .ui-select-choices{
+    left:2px;
+    top:-90px;
+    text-align: center;
+    height:90px;
+    overflow: visible;
+    width: 62px !important;
+    min-width: 62px !important;
+}
+
+.table_w .ui-select-bootstrap .ui-select-choices li{
+    height:90px;
+    width:60px;
+}
+
+.table_w .ui-select-bootstrap .ui-select-choices li div{
+    height:22px;
+    width:63px;
+}
+
+.table_w .ui-select-bootstrap .ui-select-choices li div:hover{
+    width:63px;
+}
+
+.table_w .ui-select-bootstrap .ui-select-choices li div:last-child>span{
+    height:22px;
+}
+
+.table_w .ui-select-bootstrap .ui-select-choices li div span{
+    height:22px;
+    line-height: 22px;
+    font-size: 12px;
+    width:60px;
+}
+
+.table_w .ui-select-bootstrap .ui-select-choices li div span:hover{
+    height:22px;
+    line-height: 22px;
+    font-size: 12px;
+    width:61px;
+    background: #FEEEDE;
+    border-right:1px solid #ccc;
+    color:#F8AC59;
+}
+
+.ui-select-bootstrap .ui-select-match-text{
+    padding-right: 0 !important;
+}
+.table_w .ui-select-bootstrap .ui-select-toggle{
+    border-radius: none;
+    height:33px;
+}
+
+.table_w .ui-select-bootstrap input{
+    height:32px;
+    margin:6px 2px;
+    text-align: left;
+}
+.table_span_w{
+    display: inline-block;
+}
+
+.table_span_w+span{
+    display: inline-block;
+}
+
+.table_w .ui-select-container .ui-select-match-text span{
+    color:#F8AC59;
+}
+
+.table_w .ui-select-container .ui-select-match-text span:active{
+    color:#F8AC59;
+}
+
+.table_w .ui-select-container .ui-select-match-text i{
+    opacity:1;
+    z-index: 1000;
+}
+
+.table_w .ui-select-container .ui-select-match-text i:active{
+    opacity:0;
+    z-index: 1000;
+}
+
+.table_w .ui-select-bootstrap .ui-select-toggle > .caret{
+    right:9px !important;
+    margin-top: -4px !important;
+} 
+
+.table_w .ui-select-bootstrap .ui-select-toggle{
+    border:1px solid #D6D6D6 !important;
+}
+
+.table_w .dropdown-menu{
+    /* top:-7px !important; */
+}
+
+.pos_re{
+    position: relative;
+}
+
+.pagination > li:first-child > a{
+    border-top-left-radius:0 !important;
+    border-bottom-left-radius:0 !important;
+}
+
+.pagination > li:last-child > a{
+    border-top-right-radius:0 !important;
+    border-bottom-right-radius:0 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.ng-table-pager select,
+.ng-table-pager input,
+.ng-table-pager .ng-table-pagination {
+    vertical-align: middle;
+}
+
+.ng-table-pager select,
+.ng-table-pager input {
+    margin: 0 2px;
+    text-align: center;
+    border: 1px #D5D5D5 solid;
+    width:45px;
+    height: 33px;
+    border-radius: 4px;
+}
+
+
+
+/* 分页 */
+
+.ng-table-pager .ng-table-pagination {
+    margin: 0 10px;
+}
+
+/* .ng-table-pager li a{
+    background:#fff;
+    border:1px solid #D5D5D5 !important;
+    color:#B9BABB !important;
+}
+
+.ng-table-pager li a:active{
+    background:#fff;
+    border:1px solid #D5D5D5;
+    color:#F8AC59;
+    box-shadow: 0 -2px 2px #E4E4E4;
+} */
+
+.pagination>.active>a{
+    background:#fff;
+    border:1px solid #D5D5D5 !important;
+    color:#636363 !important;
+}
+.pagination>li>a{
+    color:#636363 !important;
+    width:33px;
+    height: 33px;
+}
+.pagination>.active>a:visited{
+    background:#fff;
+    border:1px solid #D6D6D6 !important;
+    color:#F8AC59 !important;
+    box-shadow: 0 5px 5px red inset;
+   /* box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.25) !important;*/
+}
+/********************************************************/
+
+/* 按钮添加样式 */
+.button-1ab394 {
+    line-height: 30px !important;
+    height: 30px !important;
+    padding: 0 15px !important;
+    color: #1ab394 !important;
+    border: 1px solid #1ab394 !important;
+    margin-top: 0 !important;
+}
+
+.button-1ab394:hover {
+    color: #fff !important;
+    background: #1ab394 !important;
+}
+
+.button-1ab394:active:focus {
+    color: #fff !important;
+    background: #18a689 !important;
+}
+
+.wh_sure{
+    width:60px;
+    height: 30px;
+    position: relative;
+}
+#opacity{
+    opacity: 0;
+    z-index: 100;
+}
+.label_sure{
+    border-radius: 4px;
+    width:60px;
+}
+.position_sure{
+    position: absolute;
+    left:0;
+    /* top:2px; */
+}
+.button-1ab394 {
+    line-height: 30px;
+    height: 30px;
+    padding: 0 15px;
+    color: #1ab394;
+    border: 1px solid #1ab394;
+    margin-top: 0;
+    font-weight: 400;
+}
+
+.button-1ab394 +label{
+    line-height: 30px;
+    height: 30px;
+    padding: 0 15px;
+    color: #1ab394;
+    border: 1px solid #1ab394;
+    margin-top: 0;
+    font-size:14px;
+    font-weight: 400;
+}
+
+.button-1ab394:hover {
+    color: #fff;
+    background: #1ab394;
+}
+
+.button-1ab394:hover +label{
+    color: #fff;
+    background: #1ab394;
+}
+
+.button-1ab394:active:focus {
+    color: #fff;
+    background: #18a689;
+}
+
+.button-1ab394:active:focus +label{
+    color: #fff;
+    background: #18a689;
+}

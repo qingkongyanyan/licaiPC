@@ -1,0 +1,13 @@
+{
+  "name": "ng-string",
+  "homepage": "https://github.com/goodeggs/ng-string",
+  "_release": "41a2e3d89f",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "41a2e3d89fb229f27922cfcd52144394c287eb13"
+  },
+  "_source": "https://github.com/goodeggs/ng-string.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/goodeggs/ng-string.git"
+}

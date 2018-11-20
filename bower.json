@@ -1,0 +1,41 @@
+{
+  "name": "my-ui-router-tabs",
+  "description": "null",
+  "main": "null",
+  "keywords": [
+    "null"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.5.7",
+    "angular-bootstrap": "~1.3.3",
+    "angular-ui-router": "~0.3.1",
+    "angular-sanitize": "~1.5.7",
+    "angular-animate": "~1.5.7",
+    "angular-messages": "~1.5.7",
+    "angular-cookies": "~1.5.7",
+    "bootstrap": "~3.3.6",
+    "oclazyload": "~1.0.9",
+    "ng-table": "~1.0.0",
+    "angular-tree-control": "~0.2.26",
+    "ng-string": "https://github.com/goodeggs/ng-string.git",
+    "moment": "^2.14.1",
+    "angular-bootstrap-datetimepicker": "^1.0.1",
+    "angular-date-time-input": "^1.1.0",
+    "angular-loading-bar": "^0.9.0",
+    "lodash": "^4.14.1"
+  },
+  "devDependencies": {
+    "angular-local-storage": "^0.3.0",
+    "angular-jwt": "^0.0.9"
+  }
+}

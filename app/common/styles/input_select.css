@@ -1,0 +1,21 @@
+.input-select {
+	clear: both;
+	margin-left: 181px;
+	display: block;
+    z-index: 1;
+    background: #fff;
+    border: 1px solid #ccc;
+    _overflow: hidden;
+    box-shadow: 1px 1px 3px #ededed;
+    -webkit-box-shadow: 1px 1px 3px #ededed;
+    -moz-box-shadow: 1px 1px 3px #ededed;
+    -o-box-shadow: 1px 1px 3px #ededed;
+}
+.input-select-option{
+	padding: 2px 12px;
+	font-size: 13px;
+	cursor: pointer;
+}
+.input-select-option:hover{
+	background-color: #ddd;
+}

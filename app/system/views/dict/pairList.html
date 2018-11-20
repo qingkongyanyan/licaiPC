@@ -1,0 +1,22 @@
+<div>
+    <div>
+        <button ng-click='pairCreate()'>添加键值</button>
+    </div>
+    <table ng-table="pairTable" class="table table-bordered table-striped">
+        <tr ng-repeat="pair in $data">
+            <td data-title="'序号'" >
+                {{$index+1}}
+            </td>
+            <td data-title="'键值编号'" >
+                {{pair.code}}
+            </td>
+            <td data-title="'键值名称'" >
+                {{pair.name}}
+            </td>
+            <td data-title="'操作'" >
+                <button ng-click='pairEdit(pair.id)'>修改</button>
+                <button ng-click='pairDelete(pair.id)'>删除</button>
+            </td>
+        </tr>
+    </table>
+</div>

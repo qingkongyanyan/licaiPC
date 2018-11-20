@@ -1,0 +1,42 @@
+<link rel="stylesheet" type="text/css" href="common/styles/input_select.css" xmlns="http://www.w3.org/1999/html">
+
+<div class="head-path">
+	知识库管理 &gt; 问题管理 &gt; 修改问题
+</div>
+
+
+<div class="con-con con-pad">
+    <div class="con-warp" style="padding:0;height: 100%">
+    	<div class="clearfix" style="margin-left: 0;height: 100%;width:100%;">
+			<form name='editForm' novalidate style="height:calc( 100% - 50px );">
+				<div class="con-lab mgt20  clearfix">
+					<label class="fl">标题<span class="fr ast">*</span></label>
+                    <div class="con-sel fl ">
+                        <input type="text" class="form-control" id='question' name='question' ng-model='comProblemEdit.question' minlength="1" maxlength="30" required>
+						<span ng-show="comProblemEdit.question.length == undefined">0</span>
+						<span class="al ex-war">{{comProblemEdit.question.length}}<span class="num-ex-pro"></span>/30字</span>
+                    </div>
+					<div class="error login-validate-error errorIfo" ng-messages="editForm.question.$error" ng-show="editForm.question.$touched">
+						<div ng-message='required'><img src="common/styles/images/error.png" />{{M['comProblem.question.required']}}</div>
+					</div>
+				</div>
+				<div class="con-lab mgt20  clearfix" style="height: calc( 100% - 74px );">
+					<label class="fl">内容<span class="fr ast">*</span></label>
+					<div class=" fl " style="width: 1000px; padding-left: 20px;height: 100%;">
+						<ueditor name="answer" config="editorConfig" ng-model="comProblemEdit.answer" required>
+
+						</ueditor>
+					</div>
+					<div class="error login-validate-error errorIfo" ng-messages="editForm.answer.$error" ng-show="editForm.answer.$invalid" style="margin-left: 68px;">
+						<div ng-message='required'><img src="common/styles/images/error.png" />{{M['comProblem.answer.required']}}</div>
+					</div>
+				</div>
+				</form>
+				<div class="dtn-div pos_right" style="margin:0">
+					<button type="submit" class="button-1ab394 btn btn-default btn-add fl sub_right" ng-click='ok()' ng-disabled="!editForm.$valid">确认</button>
+					<button class="button-1ab394 btn btn-default btn-add fl but_right" ng-click='cancel()'>取消</button>
+				</div>
+			
+		</div>
+	</div>
+</div>

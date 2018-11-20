@@ -1,0 +1,57 @@
+<script type="text/javascript">
+    (function (UE){
+        console.dir(UE);
+        if ( UE == {}) {
+           alert('无法获取UE');
+        }
+
+        function removeClass(obj, cls){
+            var obj_class = ' '+obj.className+' ';//获取 class 内容, 并在首尾各加一个空格. ex) 'abc        bcd' -> ' abc        bcd '
+            obj_class = obj_class.replace(/(\s+)/gi, ' ');//将多余的空字符替换成一个空格. ex) ' abc        bcd ' -> ' abc bcd '
+            var removed = obj_class.replace(' '+cls+' ', ' ');//在原来的 class 替换掉首尾加了空格的 class. ex) ' abc bcd ' -> 'bcd '
+            removed = removed.replace(/(^\s+)|(\s+$)/g, '');//去掉首尾空格. ex) 'bcd ' -> 'bcd'
+            obj.className = removed;//替换原来的 class.
+        }
+        function getUrlVars()
+        {
+            var vars = [], hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for(var i = 0; i < hashes.length; i++)
+            {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+            return vars;
+        }
+        var result = decodeURI(getUrlVars()["json"]);
+        var param =  decodeURI(getUrlVars()["redirectParam"]);
+        json = JSON.parse(result);
+        param = JSON.parse(param);
+
+        console.dir(json);
+        console.dir(param);
+        var loadingId = param["loadingId"];
+        var imageUrlPrefix = param["imageUrlPrefix"];
+        var link = imageUrlPrefix + json.url;
+        var key = param['key'];
+        //var key = 'editor';
+        var document = UE.getEditor(key).document;
+        //var document = top[key].document;
+        
+        var form = window.parent.document.getElementById(param["form"]);
+
+        if(json.state == 'SUCCESS' && json.url) {
+            loader = document.getElementById(loadingId);
+            loader.setAttribute('src', link);
+            loader.setAttribute('_src', link);
+            loader.setAttribute('title', json.title || '');
+            loader.setAttribute('alt', json.original || '');
+            loader.removeAttribute('id');
+            UE.dom.domUtils.removeClasses(loader, 'loadingclass');
+        } else {
+            alert(json.state);
+        }
+        form.reset();
+    })(top.UE || {});
+</script>

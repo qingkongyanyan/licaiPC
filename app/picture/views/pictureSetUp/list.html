@@ -1,0 +1,96 @@
+        <div class="head-path">
+            轮播图设置 &gt; 轮播图
+        </div>
+        <div class="con-con con-pad">
+            <div class="con-warp">
+
+
+            <div class="first_table">
+                <div class="dtn-div">
+                    <input class="button-1ab394 btn btn-default btn-add fl" type="button" ui-sref="index.pictureSetUp.sort" value="排序">
+                    <input class="button-1ab394 btn btn-default btn-add fl mgl10" type="button" ng-click="shelves(1)" value="下架">
+                </div>
+                <div class="marker-tabl tab-top-g">
+                    <i class="fl"></i><p class="fl">轮播图上架列表</p>
+                </div>
+
+                <div class="div_table">
+                <table ng-table="pictureSetUpShelvesTable" class="table table-striped " >
+                    <tr ng-repeat="pictureSetUpShelvesList in $data">
+                        <td data-title="" class="check_td">
+                            <input type="checkbox" name="unshelves" ng-checked="isSelected('unshelves',pictureSetUpShelvesList)" ng-click="updateSelection('unshelves',$event,pictureSetUpShelvesList)"/>
+                            <label class="check_label3 "></label>
+                        </td>
+                        <td data-title="'序号'" class="td1">
+                            {{(params.page() - 1) * params.count() + $index + 1}}
+                        </td>
+                        <td data-title="'图片名称'" class="td1">
+                            {{pictureSetUpShelvesList.picName}}
+                        </td>
+                        <td data-title="'链接地址'" class="td4">
+                            {{pictureSetUpShelvesList.picUrl}}
+                        </td>
+                        <td data-title="'图片状态'" class="td1">
+                            {{pictureSetUpShelvesList.picState | picState}}
+                        </td>
+                        <td data-title="'展示排序'" class="td1">
+                            {{pictureSetUpShelvesList.sortNum}}
+                        </td>
+                        <td data-title="'操作'" class="td1">
+                            <span>
+                                <a href="" ui-sref="index.pictureSetUp.view({id:pictureSetUpShelvesList.id})" title="查看"><i class="check"></i></a>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+                </div>
+            </div>
+                
+            
+            <div class="second_table">
+                <div class="dtn-div">
+                    <input class="button-1ab394 btn btn-default btn-add fl" type="button" ui-sref="index.pictureSetUp.add" value="新增">
+                    <input class="button-1ab394 btn btn-default btn-add fl mgl10" type="button" ng-click="shelves(0)" value="上架">
+                    <input class="button-1ab394 btn btn-default btn-add fl mgl10" type="button" ng-click="delete()" value="删除">
+                </div>
+                <div class="marker-tabl tab-top-g">
+                    <i class="fl"></i><p class="fl">轮播图片库列表</p>
+                </div>
+
+                <div class="div_table">
+                <table ng-table="pictureSetUpUnshelvesTable" class="table table-striped " >
+                    <tr ng-repeat="pictureSetUpUnshelvesList in $data">
+                        <td data-title="" class="check_td">
+                            <input type="checkbox" name="deleteOrShelves" ng-checked="isSelected('deleteOrShelves',pictureSetUpUnshelvesList)" ng-click="updateSelection('deleteOrShelves',$event,pictureSetUpUnshelvesList)" />
+                            <label class="check_label3 "></label>
+                        </td>
+                        <td data-title="'序号'" class="td1">
+                            {{(params.page() - 1) * params.count() + $index + 1}}
+                        </td>
+                        <td data-title="'图片名称'" class="td1">
+                            {{pictureSetUpUnshelvesList.picName}}
+                        </td>
+                        <td data-title="'链接地址'" class="td4">
+                            {{pictureSetUpUnshelvesList.picUrl}}
+                        </td>
+                        <td data-title="'图片状态'" class="td1">
+                            {{pictureSetUpUnshelvesList.picState | picState}}
+                        </td>
+                        <td data-title="'添加时间'" class="td4">
+                            <div ng-if="pictureSetUpUnshelvesList.createTime!=null">{{pictureSetUpUnshelvesList.createTime | date:'yyyy-MM-dd HH:mm:ss'}}</div>
+                        </td>
+                        <td data-title="'操作'" class="td1">
+                            <span>
+                                <a href="" ui-sref="index.pictureSetUp.view({id:pictureSetUpUnshelvesList.id})" title="查看"><i class="check mgr10"></i></a>
+                                <a href="" ui-sref="index.pictureSetUp.update({id:pictureSetUpUnshelvesList.id})" title="编辑"><i class="write mgr10"></i></a>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+                </div>
+            </div>
+                
+
+
+            </div>
+        </div>

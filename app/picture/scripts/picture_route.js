@@ -1,0 +1,59 @@
+//轮播图设置管理总模块
+angular.module('picture.route',['ui.router',
+    'pictureSetUp.route']);
+
+//轮播图设置管理->轮播图设置模块
+angular.module('pictureSetUp.route',['ui.router'])
+.config(["$stateProvider","$urlRouterProvider",function($stateProvider, $urlRouterProvider) {
+    $stateProvider
+        //****************************轮播图设置管理模块******************************
+        .state('index.pictureSetUp',{
+            url:'/pictureSetUp',
+            abstract:true,
+            templateUrl:'picture/views/pictureSetUp/pictureSetUp.html',
+            controller:'pictureSetUpController',
+            resolve:{
+                deps:['$ocLazyLoad',function($ocLazyLoad){
+                    return $ocLazyLoad.load('picture.pictureSetUpController');
+                }]
+            }
+        })
+        //轮播图列表
+        .state('index.pictureSetUp.list',{
+            url:'',
+            templateUrl:'picture/views/pictureSetUp/list.html',
+            controller:'pictureSetUpListController'
+        })
+        //添加轮播图
+        .state("index.pictureSetUp.add",{
+            url:"/add",
+            templateUrl:"picture/views/pictureSetUp/add.html",
+            controller:"pictureSetUpAddController"
+        })
+        //修改轮播图
+        .state("index.pictureSetUp.update",{
+            url:"/update/:id",
+            templateUrl:"picture/views/pictureSetUp/edit.html",
+            controller:"pictureSetUpEditController"
+        })
+        //轮播图详细
+        .state("index.pictureSetUp.view",{
+            url:"/detail/:id",
+            templateUrl:"picture/views/pictureSetUp/view.html",
+            controller:"pictureSetUpViewController"
+        })
+        //图片排序
+        .state("index.pictureSetUp.sort",{
+            url:"/sort",
+            templateUrl:"picture/views/pictureSetUp/sort.html",
+            controller:"pictureSetUpSortController"
+        })
+        //图片上架
+        .state("index.pictureSetUp.shelves",{
+            url:"/shelves",
+            templateUrl:"picture/views/pictureSetUp/shelves.html",
+            controller:"pictureSetUpShelvesController"
+        })
+        //****************************轮播图设置管理模块******************************
+    }
+]);

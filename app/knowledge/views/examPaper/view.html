@@ -1,0 +1,36 @@
+<div class="head-path">
+	知识库管理 &gt; 考卷管理 &gt; 查看考卷
+</div>
+<div class="con-con con-pad">
+	<div class="con-warp">
+		<div class="clearfix">
+			<div class="con-lab mgt20  clearfix fl mgr50">
+				<span class="fl ast"></span><label class="fl">考题名称：</label>
+				<div class="con-sel fl mgl20 dropdown">
+					<label class="fl">{{examPaperDetail.paperName}}</label>
+				</div>
+			</div>
+			<div class="con-lab mgt20  clearfix fl mgr50">
+				<span class="fl ast"></span><label class="fl">总分：</label>
+				<div class="con-sel fl mgl20 dropdown">
+					<label class="fl">{{examPaperDetail.totalScore}}</label>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix fl81" style="position:relative; height:500px; overflow:auto">
+			<ul>
+				<li ng-repeat="options in examPaperDetail.options">
+					{{options.titleIndex}}.{{options.title}}
+					<ul>
+						<li ng-repeat="option in options.options">
+							<input type="checkbox" ng-checked="option.isSelected == 1 ? true : false"/>{{option.answer}}              ({{option.score}}分)
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="dtn-div" style="text-align: center;margin-top:30px;">
+			<button class="btn btn-default btn-add" ng-click='close()'>关闭</button>
+		</div>
+	</div>
+</div>

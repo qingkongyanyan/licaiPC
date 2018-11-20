@@ -1,0 +1,122 @@
+
+        <div class="head-path">
+            数据统计 &gt; 预售产品反馈统计
+        </div>
+        <div class="con-con con-pad">
+            <div class="con-warp">
+                <div class="clearfix" style="margin:0;">
+                    <div class="con-lab mgt20 fl w338">
+                        <label class="fl">产品编号</label>
+                        <div class="con-sel fl">
+                            <input type="text" class="form-control" ng-model='proCode'  >
+                        </div>
+                    </div>
+                    <div class="con-lab mgt20 fl w338">
+                        <label class="fl" >产品类型</label>
+                        <!-- <div class="con-sel fl mgl20 dropdown">
+                            <select ng-model = "proType.selected" class="form-control" ng-options = "a.key as a.value for a in proType.data" ng-change="proTypeChange(proType.selected)"></select >
+                        </div> -->
+                        <div class="con-sel fl opacity_sel">
+                            <ui-select ng-model="proType.selected" append-to-body="true" ng-change="proTypeChange(proType.selected)">
+                                <ui-select-match placeholder="全部">{{$select.selected.value}}</ui-select-match>
+                                <ui-select-choices repeat="x.key as x in proType.data | filter: $select.search">
+                                    <small ng-bind-html="x.value | highlight: $select.search"></small> 
+                                </ui-select-choices> 
+                            </ui-select>
+                            <label></label>
+                        </div>
+                    </div>
+                    <div class="con-lab mgt20 fl w338">
+                        <label class="fl" >项目名称</label>
+                        <!--<div class="con-sel fl mgl20 dropdown">
+                            <select ng-model = "projName.selected" class="form-control" ng-options = "a.projCode as a.projName for a in projName.data"   ng-change="projNameChange(projName.selected)"></select ></div>-->
+                         <div class="con-sel fl opacity_sel">
+                            <ui-select ng-model="projName.selected" append-to-body="true" ng-change="projNameChange(projName.selected)">
+                                <ui-select-match placeholder="全部">{{$select.selected.projName}}</ui-select-match>
+                                <ui-select-choices repeat="x.projCode as x in projName.data | filter: $select.search">
+                                    <small ng-bind-html="x.projName | highlight: $select.search"></small> 
+                                </ui-select-choices> 
+                            </ui-select>
+                            <label></label>
+                        </div> 
+                    </div>
+                    <div class="con-lab mgt20 fl w338">
+                        <label class="fl" >产品名称</label>
+                        <!-- <div class="con-sel fl mgl20 dropdown">
+                            <select ng-model = "proName.selected" class="form-control" ng-options = "a.proName for a in proName.data"></select ></div> -->
+                        <div class="con-sel fl opacity_sel">
+                            <ui-select ng-model="proName.selected" append-to-body="true">
+                                <ui-select-match placeholder="全部">{{$select.selected.proName}}</ui-select-match>
+                                <ui-select-choices repeat="x.proName as x in proName.data | filter: $select.search">
+                                    <small ng-bind-html="x.proName | highlight: $select.search"></small> 
+                                </ui-select-choices> 
+                            </ui-select>
+                            <label></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="dtn-div">
+                    <!-- <div class="nqu-div fr" ng-click='list()'>
+                        <span >查询</span>
+                    </div>
+                    <div class="nqu-div fr" ng-click='reset()'>
+                        <span >重置</span>
+                    </div>-->
+                    <div class="nqu-div fr">
+                        <p class="chaxun">
+                          <a type="button" ng-click="list()">查询</a>
+                          <span></span>
+                          <a type="button" ng-click="reset()">重置</a>  
+                        </p>
+                    </div>
+                </div> 
+
+                <div class="marker-tabl tab-top-g">
+                    <i class="fl"></i><p class="fl">预售产品反馈统计列表</p>
+                </div>
+                <div class="grid-wrap">
+                    <table ng-table="preSaleProTable" class="table table-striped " >
+                        <tr ng-repeat="preSaleProList in $data">
+                            <td data-title="'序号'" class="td1">
+                                {{(params.page() - 1) * params.count() + $index + 1}}
+                            </td>
+                            <td data-title="'产品编号'" class="td1">
+                                {{preSaleProList.proCode}}
+                            </td>
+                            <td data-title="'产品名称'" class="td1">
+                                {{preSaleProList.proName}}
+                            </td>
+                            <td data-title="'产品类型'" class="td1">
+                                {{preSaleProList.proTypeName}}
+                            </td>
+                            <td data-title="'项目名称'" class="td174">
+                                {{preSaleProList.projName}}
+                            </td>
+                            <td data-title="'最低申购金额[元]'" class="td3">
+                                {{preSaleProList.minAmt}}
+                            </td>
+                            <td data-title="'最高申购金额[元]'" class="td3">
+                                {{preSaleProList.maxAmt}}
+                            </td>
+                            <td data-title="'封闭期限[月]'" class="td2">
+                                {{preSaleProList.closedTerm}}
+                            </td>
+                            <td data-title="'预售日期'" class="td2">
+                                {{preSaleProList.preSaleDate | date:'yyyy-MM-dd'}}
+                            </td>
+                            <td data-title="'预售反馈'" class="td4">
+                                很好{{preSaleProList.veryGoodCount}}    良好{{preSaleProList.goodCount}}   一般{{preSaleProList.normalCount}}
+                            </td>
+                            <td data-title="'预估市场总份额[元]'" class="td4">
+                                {{preSaleProList.sumShare}}
+                            </td>
+                            <td data-title="'操作'" class="td1">
+                                <span>
+                                    <a href="" ui-sref="index.preSalePro.view({proCode:preSaleProList.proCode})" title="查看"><i class="check mgr10"></i></a>
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>

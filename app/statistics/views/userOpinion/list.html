@@ -1,0 +1,113 @@
+
+        <div class="head-path">
+            数据统计 &gt; 用户意见反馈统计
+        </div>
+        <div class="con-con con-pad">
+            <div class="con-warp">
+                <div class="clearfix" style="margin:0;">
+                    <div class="con-lab mgt20 fl w338">
+                        <label class="fl">用户姓名</label>
+                        <div class="fl con-sel">
+                            <input type="text" class="form-control" ng-model='userName'  >
+                        </div>
+                    </div>
+                    <div class="con-lab mgt20 fl w338">
+                        <label class="fl mgl30" >角色</label>
+                        <div class="con-sel fl opacity_sel">
+                            <!-- <select ng-model = "roleCode.selected" class="form-control" ng-options = "a.key as a.value for a in roleCode.data" ></select > -->
+                            <ui-select ng-model="roleCode.selected" append-to-body="true">
+                                <ui-select-match placeholder="全部">{{$select.selected.value}}</ui-select-match>
+                                <ui-select-choices repeat="x.key as x in roleCode.data | filter: $select.search">
+                                    <small ng-bind-html="x.value | highlight: $select.search"></small> 
+                                </ui-select-choices> 
+                            </ui-select>
+                            <label></label>
+                        </div>
+                    </div>
+                    <div class="con-lab mgt20 fl w338">
+                        <label class="fl" >提交时间</label>
+                        <!-- <div class="fl mgl20 dropdown-double con-sel">
+                            <p class="datepicker-wrap"><input ng-model = "startTime" type="text" class="Wdate" id="dus01" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'dus02\',{d:0});}',dateFmt:'yyyy-MM-dd'})"/></p>~
+                            <p class="datepicker-wrap"><input ng-model = "endTime" type="text" class="Wdate" id="dus02" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'dus01\',{d:0});}',dateFmt:'yyyy-MM-dd'})"/></p>
+                        </div> -->
+                        <div class="fl mgl20 dropdown80 con-sel">
+                            <input ng-model = "startTime" type="text" class="Wdate" id="dus01" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'dus02\',{d:0});}',dateFmt:'yyyy-MM-dd'})"/>
+                        </div>
+                        <div class="line">—</div>
+                        <div class="fl dropdown80 con-sel" style="margin-left: 0">
+                            <input ng-model = "endTime" type="text" class="Wdate" id="dus02" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'dus01\',{d:0});}',dateFmt:'yyyy-MM-dd'})"/>
+                        </div>
+                    </div>
+                    <div class="con-lab mgt20 fl w338">
+                        <label class="fl mgl30" >状态</label>
+                        <div class="con-sel fl opacity_sel">
+                            <!-- <select ng-model = "state.selected" class="form-control" ng-options = "a.key as a.value for a in state.data" ></select > -->
+                            <ui-select ng-model="state.selected" append-to-body="true">
+                                <ui-select-match placeholder="全部">{{$select.selected.value}}</ui-select-match>
+                                <ui-select-choices repeat="x.key as x in state.data | filter: $select.search">
+                                    <small ng-bind-html="x.value | highlight: $select.search"></small> 
+                                </ui-select-choices> 
+                            </ui-select>
+                            <label></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="dtn-div">
+                    <input class="button-1ab394 btn btn-default btn-add fl" type="button" ng-click="confirm()" value="确认">
+                    <input class="button-1ab394 btn btn-default btn-add fl mgl10" type="button" ng-click="delete()" value="删除">
+                    <!-- <div class="nqu-div fr" ng-click='list()'>
+                        <span >查询</span>
+                    </div>
+                    <div class="nqu-div fr" ng-click='reset()'>
+                        <span >重置</span>
+                    </div> -->
+                    <div class="nqu-div fr">
+                        <p class="chaxun">
+                          <a type="button" ng-click="list()">查询</a>
+                          <span></span>
+                          <a type="button" ng-click="reset()">重置</a>  
+                        </p>
+                    </div>
+                </div>
+                <div class="marker-tabl tab-top-g">
+                    <i class="fl"></i><p class="fl">用户意见反馈统计列表</p>
+                </div>
+                <div class="grid-wrap">
+                    <table ng-table="userOpinionTable" class="table table-striped " >
+                        <tr ng-repeat="userOpinionList in $data">
+                            <td data-title="" class="check_td">
+                                <input type="checkbox" name="common" ng-checked="isSelected('common',userOpinionList)" ng-click="updateSelection('common',$event,userOpinionList)" />
+                                <label class="check_label3 "></label>
+                            </td>
+                            <td data-title="'序号'" class="td1">
+                                {{(params.page() - 1) * params.count() + $index + 1}}
+                            </td>
+                            <td data-title="'用户编号'" class="td2">
+                                {{userOpinionList.userCode}}
+                            </td>
+                            <td data-title="'用户名称'" class="td1">
+                                {{userOpinionList.userName}}
+                            </td>
+                            <td data-title="'角色'" class="td1">
+                                {{userOpinionList.roleName}}
+                            </td>
+                            <td data-title="'功能项'" class="td1">
+                                {{userOpinionList.functionType | functionType}}
+                            </td>
+                            <td data-title="'提交日期'" class="td4">
+                                {{userOpinionList.createTime | date:'yyyy-MM-dd HH:mm:ss'}}
+                            </td>
+                            <td data-title="'状态'" class="td1">
+                                {{userOpinionList.state | stateO}}
+                            </td>
+                            <td data-title="'操作'" class="td1">
+                                <span>
+                                    <a href="" ui-sref="index.userOpinion.detail({id:userOpinionList.id})" title="查看"><i class="check mgr10"></i></a>
+                                </span>
+                            </td>
+                        </tr>
+                        <!--<tr id="show" class="pos_tr"><td class="pos_td pos_td40"><div ng-hide='$data.length>0'>暂没有数据</div></td></tr>-->
+                    </table>
+                </div>
+            </div>
+        </div>

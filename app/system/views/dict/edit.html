@@ -1,0 +1,37 @@
+<div>
+	<form name='editForm'>
+		<div>
+			<label for='code'>*字典编号</label>
+			<input type='text' id='code' name='code' ng-model='dict.code' ng-pattern='/^[A-Za-z0-9]{4}$/' required
+				unique='{"url":"{{checkCodeUrl}}","data":{"attr":"code","id":0 } }' />
+			<div ng-messages="editForm.code.$error" ng-if="editForm.code.$touched">
+				<div ng-message='required'>字典编码必填</div>
+				<div ng-message='pattern'>字典编码只能是4位数字或者字母</div>
+				<div ng-message='unique'>该字典编码已存在</div>
+			</div>
+		</div>
+		<div>
+			<label for='name'>*字典名称</label>
+			<input type='text' id='name' name='name' ng-model='dict.name' ng-pattern='/^[\u4e00-\u9fa5]{1,10}$/' required
+				unique='{"url":"{{checkNameUrl}}","data":{"attr":"name","id":0 } }' />
+			<div ng-messages="editForm.name.$error" ng-if="editForm.name.$touched">
+				<div ng-message='required'>字典名称必填</div>
+				<div ng-message='pattern'>字典名称限制为10个汉字</div>
+				<div ng-message='unique'>该字典名称已存在</div>
+			</div>
+		</div>
+		<div>
+			<label for='tagType'>*字典类型</label>
+			<select id='tagType' name='tagType' ng-model="dict.tagType" ng-required
+				ng-options="tagType.value as tagType.name for tagType in TagTypeEnum"></select>
+		</div>
+		<div>
+			<label for='remark'>字典说明</label>
+			<textarea id='remark' name='remark' ng-model='dict.remark'></textarea>
+		</div>
+		<div>
+			<button ng-click='editDict()'>确认</button>
+			<button ng-click='cancel()'>取消</button>
+		</div>
+	</form>
+</div>

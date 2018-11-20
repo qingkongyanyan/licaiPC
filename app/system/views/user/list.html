@@ -1,0 +1,53 @@
+<div>
+	<div>
+		用户编号<input type='text' ng-model='query.code' />
+		用户姓名<input type='text' ng-model='query.name' />
+		用户状态<select ng-model="query.status" ng-options="status.value as status.name for status in UserStatusEnum">
+                    <option value='' selected='selected'>全部</option>
+                </select>
+		<button ng-click='list()'>查询</button>
+	</div>
+    <div>
+        <a ui-sref="index.user.create">新增</a>
+        <button>授权功能角色</button>
+        <button ng-click='reset()'>重置密码</button>
+        <button ng-click='rest()'>休息</button>
+        <button ng-click='active()'>激活</button>
+        <button ng-click='cancel()'>注销</button>
+    </div>
+    <table ng-table="userTable" class="table table-bordered table-striped">
+        <tr ng-repeat="user in $data">
+            <td data-title="'选择'" >
+                <input type='radio' name='operate' ng-value='user.id' ng-model='choose.id' />
+            </td>
+            <td data-title="'用户编号'" >
+                {{user.code}}
+            </td>
+            <td data-title="'用户姓名'" >
+                {{user.name}}
+            </td>
+            <td data-title="'性别'" >
+                {{user.sex}}
+            </td>
+            <td data-title="'证件类型'" >
+                {{user.certType}}
+            </td>
+            <td data-title="'证件号码'" >
+                {{user.certCode}}
+            </td>
+            <td data-title="'功能角色'" >
+                {{user.roleNames}}
+            </td>
+            <td data-title="'注册日期'" >
+                {{user.registerTime}}
+            </td>
+            <td data-title="'状态'" >
+                {{user.status}}
+            </td>
+            <td data-title="'操作'" >
+               	<a ui-sref="index.user.edit({id:user.id})">修改</a>
+				<a ui-sref="index.user.view({id:user.id})">详情</a>
+            </td>
+        </tr>
+    </table>
+</div>
